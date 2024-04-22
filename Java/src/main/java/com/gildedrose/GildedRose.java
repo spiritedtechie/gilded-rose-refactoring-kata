@@ -18,20 +18,15 @@ class GildedRose {
             Item item = items[i];
 
             if (item.name.equals(AGED_BRIE)) {
-                if (item.quality < 50) {
-                    item.quality += 1;
-                }
+                item.incrementQuality();
             } else if (item.name.equals(BACKSTAGE_PASSES)) {
-                if (item.quality < 50) {
-                    item.quality += 1;
+                item.incrementQuality();
+                if (item.sellIn < 11) {
+                    item.incrementQuality();
                 }
-                if (item.quality < 50 && item.sellIn < 11) {
-                    item.quality += 1;
+                if (item.sellIn < 6) {
+                    item.incrementQuality();
                 }
-                if (item.quality < 50 && item.sellIn < 6) {
-                    item.quality += 1;
-                }
-
             } else if (!item.name.equals(SULFURAS) && item.quality > 0) {
                 item.quality -= 1;
             }
