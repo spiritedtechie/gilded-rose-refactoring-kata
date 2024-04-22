@@ -139,7 +139,7 @@ class GildedRoseTest {
         assertEquals(0, app.items[0].quality);
     }
 
-    @Test 
+    @Test
     void test_sulfuras_sellInNotDecremented() {
         Item[] items = new Item[] { new Item(SULFURAS, 11, 0) };
 
@@ -149,7 +149,7 @@ class GildedRoseTest {
         assertEquals(11, app.items[0].sellIn);
     }
 
-    @Test 
+    @Test
     void test_agedBrie_sellInIsDecremented() {
         Item[] items = new Item[] { new Item(AGED_BRIE, 11, 0) };
 
@@ -160,7 +160,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_sellInLessThanZero_agedBrie_quality49_qualityNotIncrementedBeyond50(){
+    void test_sellInLessThanZero_agedBrie_quality49_qualityNotIncrementedBeyond50() {
         Item[] items = new Item[] { new Item(AGED_BRIE, -1, 49) };
 
         GildedRose app = new GildedRose(items);
@@ -170,7 +170,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_sellInLessThanZero_agedBrie_quality10_qualityIsIncremented(){
+    void test_sellInLessThanZero_agedBrie_quality10_qualityIsIncremented() {
         Item[] items = new Item[] { new Item(AGED_BRIE, -1, 10) };
 
         GildedRose app = new GildedRose(items);
@@ -180,7 +180,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_sellInLessThanZero_backstagePasses_quality10_qualityIsZeroed(){
+    void test_sellInLessThanZero_backstagePasses_quality10_qualityIsZeroed() {
         Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, -1, 10) };
 
         GildedRose app = new GildedRose(items);
