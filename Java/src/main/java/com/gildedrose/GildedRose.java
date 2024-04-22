@@ -38,14 +38,10 @@ class GildedRose {
             if (item.sellIn < 0) {
                 if (item.name.equals(AGED_BRIE)) {
                     item.incrementQuality();
-                } else {
-                    if (item.name.equals(BACKSTAGE_PASSES)) {
-                        item.quality = 0;
-                    } else {
-                        if (!item.name.equals(SULFURAS)) {
-                            item.decrementQuality();
-                        }
-                    }
+                } else if (item.name.equals(BACKSTAGE_PASSES)) {
+                    item.quality = 0;
+                } else if (!item.name.equals(SULFURAS)) {
+                    item.decrementQuality();
                 }
             }
         }
