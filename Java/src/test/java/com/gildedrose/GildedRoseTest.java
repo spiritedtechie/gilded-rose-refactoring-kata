@@ -189,4 +189,34 @@ class GildedRoseTest {
         assertEquals(0, app.items[0].quality);
     }
 
+    @Test
+    void test_sellInLessThanZero_sulfuras_quality10_qualityIsUnchanged() {
+        Item[] items = new Item[] { new Item(SULFURAS, -1, 10) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(10, app.items[0].quality);
+    }
+
+    @Test
+    void test_sellInLessThanZero_cheddarCheese_quality2_qualityIsDecremented() {
+        Item[] items = new Item[] { new Item("Cheddar Cheese", -1, 2) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
+
+    @Test
+    void test_sellInLessThanZero_cheddarCheese_quality0_qualityIsUnchanged() {
+        Item[] items = new Item[] { new Item("Cheddar Cheese", -1, 0) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
+
 }
