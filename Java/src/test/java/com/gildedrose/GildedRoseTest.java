@@ -179,4 +179,14 @@ class GildedRoseTest {
         assertEquals(12, app.items[0].quality);
     }
 
+    @Test
+    void test_sellInLessThanZero_backstagePasses_quality10_qualityIsZeroed(){
+        Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, -1, 10) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
+
 }
