@@ -96,4 +96,44 @@ class GildedRoseTest {
         assertEquals(48, app.items[0].quality);
     }
 
+    @Test
+    void test_cheddarCheese_quality1() {
+        Item[] items = new Item[] { new Item("Cheddar cheese", 11, 1) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
+
+    @Test
+    void test_cheddarCheese_quality0() {
+        Item[] items = new Item[] { new Item("Cheddar cheese", 11, 0) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
+
+    @Test
+    void test_sulfuras_quality1() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 11, 1) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(1, app.items[0].quality);
+    }
+
+    @Test
+    void test_sulfuras_quality0() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 11, 0) };
+
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
+
 }
