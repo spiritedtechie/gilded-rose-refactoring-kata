@@ -97,7 +97,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_cheddarCheese_quality1() {
+    void test_cheddarCheese_quality1_decrements() {
         Item[] items = new Item[] { new Item("Cheddar cheese", 11, 1) };
 
         GildedRose app = new GildedRose(items);
@@ -107,7 +107,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_cheddarCheese_quality0() {
+    void test_cheddarCheese_quality0_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Cheddar cheese", 11, 0) };
 
         GildedRose app = new GildedRose(items);
@@ -117,7 +117,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_sulfuras_quality1() {
+    void test_sulfuras_quality1_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 11, 1) };
 
         GildedRose app = new GildedRose(items);
@@ -127,7 +127,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_sulfuras_quality0() {
+    void test_sulfuras_quality0_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 11, 0) };
 
         GildedRose app = new GildedRose(items);
