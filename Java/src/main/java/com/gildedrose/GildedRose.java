@@ -15,10 +15,10 @@ class GildedRose {
 
     public void updateQuality() {
         for (int i = 0; i < items.length; i++) {
+            Item item = items[i];
             if (items[i].name.equals(AGED_BRIE)
                     || items[i].name.equals(BACKSTAGE_PASSES)) {
 
-                Item item = items[i];
                 if (item.quality < 50) {
                     item.quality += 1;
                 }
@@ -32,10 +32,8 @@ class GildedRose {
                     }
                 }
 
-            } else {
-                if (items[i].quality > 0 && !items[i].name.equals(SULFURAS)) {
-                    items[i].quality -= 1;
-                }
+            } else if (item.quality > 0 && !item.name.equals(SULFURAS)) {
+                item.quality -= 1;
             }
 
             if (!items[i].name.equals(SULFURAS)) {
