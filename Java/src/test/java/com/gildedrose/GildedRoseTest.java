@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class GildedRoseTest {
 
     @Test
-    void test_agedBrie_quality49_incrementsQuality() {
+    void test_sellInMoreThanZero_agedBrie_quality49_incrementsQuality() {
         Item[] items = new Item[] { new Item("Aged Brie", 10, 49) };
 
         GildedRose app = new GildedRose(items);
@@ -17,7 +17,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_agedBrie_quality50_qualityRemainsUnchanged() {
+    void test_sellInMoreThanZero_agedBrie_quality50_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Aged Brie", 10, 50) };
 
         GildedRose app = new GildedRose(items);
@@ -27,7 +27,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_backstagePasses_quality50_qualityRemainsUnchanged() {
+    void test_sellInMoreThanZero_backstagePasses_quality50_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 50) };
 
         GildedRose app = new GildedRose(items);
@@ -37,7 +37,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_backstagePasses_quality47_sellIn10() {
+    void test_sellInMoreThanZero_backstagePasses_quality47_sellIn10() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 47) };
 
         GildedRose app = new GildedRose(items);
@@ -47,7 +47,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_backstagePasses_quality47_sellIn5() {
+    void test_sellInMoreThanZero_backstagePasses_quality47_sellIn5() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 47) };
 
         GildedRose app = new GildedRose(items);
@@ -57,7 +57,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_backstagePasses_quality49_sellIn10() {
+    void test_sellInMoreThanZero_backstagePasses_quality49_sellIn10() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49) };
 
         GildedRose app = new GildedRose(items);
@@ -67,7 +67,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_backstagePasses_quality48_sellIn5() {
+    void test_sellInMoreThanZero_backstagePasses_quality48_sellIn5() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 5, 48) };
 
         GildedRose app = new GildedRose(items);
@@ -77,7 +77,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_backstagePasses_quality49_sellIn11() {
+    void test_sellInMoreThanZero_backstagePasses_quality49_sellIn11() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 49) };
 
         GildedRose app = new GildedRose(items);
@@ -87,7 +87,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_backstagePasses_quality47_sellIn11() {
+    void test_sellInMoreThanZero_backstagePasses_quality47_sellIn11() {
         Item[] items = new Item[] { new Item("Backstage passes to a TAFKAL80ETC concert", 11, 47) };
 
         GildedRose app = new GildedRose(items);
@@ -97,7 +97,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_cheddarCheese_quality1_decrements() {
+    void test_sellInMoreThanZero_cheddarCheese_quality1_decrements() {
         Item[] items = new Item[] { new Item("Cheddar cheese", 11, 1) };
 
         GildedRose app = new GildedRose(items);
@@ -107,7 +107,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_cheddarCheese_quality0_qualityRemainsUnchanged() {
+    void test_sellInMoreThanZero_cheddarCheese_quality0_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Cheddar cheese", 11, 0) };
 
         GildedRose app = new GildedRose(items);
@@ -117,7 +117,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_sulfuras_quality1_qualityRemainsUnchanged() {
+    void test_sellInMoreThanZero_sulfuras_quality1_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 11, 1) };
 
         GildedRose app = new GildedRose(items);
@@ -127,7 +127,7 @@ class GildedRoseTest {
     }
 
     @Test
-    void test_sulfuras_quality0_qualityRemainsUnchanged() {
+    void test_sellInMoreThanZero_sulfuras_quality0_qualityRemainsUnchanged() {
         Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 11, 0) };
 
         GildedRose app = new GildedRose(items);
