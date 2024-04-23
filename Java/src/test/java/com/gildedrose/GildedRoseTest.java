@@ -171,7 +171,7 @@ class GildedRoseTest {
 
     @Test
     void test_sellInLessThanZero_agedBrie_quality10_qualityIsIncremented() {
-        Item[] items = new Item[] { new Item(AGED_BRIE, -1, 10) };
+        Item[] items = new Item[] { new Item(AGED_BRIE, 0, 10) };
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -181,7 +181,7 @@ class GildedRoseTest {
 
     @Test
     void test_sellInLessThanZero_backstagePasses_quality10_qualityIsZeroed() {
-        Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, -1, 10) };
+        Item[] items = new Item[] { new Item(BACKSTAGE_PASSES, 0, 10) };
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -201,7 +201,7 @@ class GildedRoseTest {
 
     @Test
     void test_sellInLessThanZero_cheddarCheese_quality2_qualityIsDecremented() {
-        Item[] items = new Item[] { new Item("Cheddar Cheese", -1, 2) };
+        Item[] items = new Item[] { new Item("Cheddar Cheese", 0, 2) };
 
         GildedRose app = new GildedRose(items);
         app.updateQuality();
