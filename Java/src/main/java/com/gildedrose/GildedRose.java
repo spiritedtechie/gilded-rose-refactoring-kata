@@ -30,19 +30,18 @@ class GildedRose {
 
             Integer closingSellIn = item.sellIn - 1;
 
-            Integer increment = 0;
+            Integer increment;
             if (item.name.equals(AGED_BRIE)) {
                 increment = closingSellIn < 0 ? 2 : 1;
             } else if (item.name.equals(BACKSTAGE_PASSES)) {
-                increment += 1;
-                if (item.sellIn <= 10) {
-                    increment += 1;
-                }
-                if (item.sellIn <= 5) {
-                    increment += 1;
-                }
                 if (closingSellIn < 0) {
                     increment = -item.quality;
+                } else if (item.sellIn <= 5) {
+                    increment = 3;
+                } else if (item.sellIn <= 10) {
+                    increment = 2;
+                } else {
+                    increment = 1;
                 }
             } else {
                 increment = closingSellIn < 0 ? -2 : -1;
