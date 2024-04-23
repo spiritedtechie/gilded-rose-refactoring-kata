@@ -41,15 +41,19 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : this.items) {
-            if (getItemType(item.name) == SULFURAS) {
-                continue;
-            }
-
-            Integer daysLeft = item.sellIn - 1;
-            Integer increment = calculateQualityIncrement(item, daysLeft);
-            incrementQuality(item, increment);
-            item.sellIn = daysLeft;
+            updateItemQuality(item);
         }
+    }
+
+    private void updateItemQuality(Item item) {
+        if (getItemType(item.name) == SULFURAS) {
+            return;
+        }
+
+        Integer daysLeft = item.sellIn - 1;
+        Integer increment = calculateQualityIncrement(item, daysLeft);
+        incrementQuality(item, increment);
+        item.sellIn = daysLeft;
     }
 
     private static Integer calculateQualityIncrement(Item item, Integer daysLeft) {
