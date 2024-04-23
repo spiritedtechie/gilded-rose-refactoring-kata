@@ -28,33 +28,28 @@ class GildedRose {
                 continue;
             }
 
-            Integer sellInAtStartOfDay = item.sellIn;
-            Integer sellInAtEndOfDay = item.sellIn - 1;
-            item.sellIn = sellInAtEndOfDay;
+            Integer closingSellIn = item.sellIn - 1;
 
+            Integer increment = 0;
             if (item.name.equals(AGED_BRIE)) {
-                incrementQuality(item, 1);
-                if (sellInAtEndOfDay < 0) {
-                    incrementQuality(item, 1);
-                }
+                increment = closingSellIn < 0 ? 2 : 1;
             } else if (item.name.equals(BACKSTAGE_PASSES)) {
-                incrementQuality(item, 1);
-                if (sellInAtStartOfDay <= 10) {
-                    incrementQuality(item, 1);
+                increment += 1;
+                if (item.sellIn <= 10) {
+                    increment += 1;
                 }
-                if (sellInAtStartOfDay <= 5) {
-                    incrementQuality(item, 1);
+                if (item.sellIn <= 5) {
+                    increment += 1;
                 }
-                if (sellInAtEndOfDay < 0) {
-                    item.quality = 0;
+                if (closingSellIn < 0) {
+                    increment = -item.quality;
                 }
             } else {
-                incrementQuality(item, -1);
-                if (sellInAtEndOfDay < 0) {
-                    incrementQuality(item, -1);
-                }
+                increment = closingSellIn < 0 ? -2 : -1;
             }
 
+            incrementQuality(item, increment);
+            item.sellIn = closingSellIn;
         }
     }
 }
