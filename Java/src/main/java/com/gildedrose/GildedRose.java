@@ -13,6 +13,11 @@ class GildedRose {
         this.items = items;
     }
 
+    private static void incrementQuality(Item item, Integer amount) {
+        int newQuality = item.quality + amount;
+        item.quality = Math.max(0, Math.min(50, newQuality));
+    }
+
     public void updateQuality() {
         for (Item item : this.items) {
             if (item.name.equals(SULFURAS)) {
@@ -24,25 +29,25 @@ class GildedRose {
             item.sellIn = sellInAtEndOfDay;
 
             if (item.name.equals(AGED_BRIE)) {
-                item.incrementQuality();
+                incrementQuality(item, 1);
                 if (sellInAtEndOfDay < 0) {
-                    item.incrementQuality();
+                    incrementQuality(item, 1);
                 }
             } else if (item.name.equals(BACKSTAGE_PASSES)) {
-                item.incrementQuality();
+                incrementQuality(item, 1);
                 if (sellInAtStartOfDay <= 10) {
-                    item.incrementQuality();
+                    incrementQuality(item, 1);
                 }
                 if (sellInAtStartOfDay <= 5) {
-                    item.incrementQuality();
+                    incrementQuality(item, 1);
                 }
                 if (sellInAtEndOfDay < 0) {
                     item.quality = 0;
                 }
             } else {
-                item.decrementQuality();
+                incrementQuality(item, -1);
                 if (sellInAtEndOfDay < 0) {
-                    item.decrementQuality();
+                    incrementQuality(item, -1);
                 }
             }
 
