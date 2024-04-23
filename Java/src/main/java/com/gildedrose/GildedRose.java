@@ -1,6 +1,10 @@
 package com.gildedrose;
 
 class GildedRose {
+    private static final int MIN_QUALITY = 0;
+
+    private static final int MAX_QUALITY = 50;
+
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
     public static final String AGED_BRIE = "Aged Brie";
@@ -15,7 +19,7 @@ class GildedRose {
 
     private static void incrementQuality(Item item, Integer amount) {
         int newQuality = item.quality + amount;
-        item.quality = Math.max(0, Math.min(50, newQuality));
+        item.quality = Math.max(MIN_QUALITY, Math.min(MAX_QUALITY, newQuality));
     }
 
     public void updateQuality() {
