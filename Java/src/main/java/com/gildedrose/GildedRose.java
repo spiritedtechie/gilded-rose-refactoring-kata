@@ -1,7 +1,5 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemType.AGED_BRIE;
-import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
 import static com.gildedrose.ItemType.SULFURAS;
 import static com.gildedrose.ItemType.getItemType;
 
@@ -33,18 +31,12 @@ enum ItemType {
 
 class GildedRose {
     private static final int MIN_QUALITY = 0;
-
     private static final int MAX_QUALITY = 50;
 
     Item[] items;
 
     public GildedRose(Item[] items) {
         this.items = items;
-    }
-
-    private static void incrementQuality(Item item, Integer amount) {
-        int newQuality = item.quality + amount;
-        item.quality = Math.max(MIN_QUALITY, Math.min(MAX_QUALITY, newQuality));
     }
 
     public void updateQuality() {
@@ -61,21 +53,26 @@ class GildedRose {
     }
 
     private static Integer calculateQualityIncrement(Item item, Integer daysLeft) {
-        ItemType itemType = ItemType.getItemType(item.name);
-        if (itemType == AGED_BRIE) {
-            return daysLeft < 0 ? 2 : 1;
-        } else if (itemType == BACKSTAGE_PASSES) {
-            if (daysLeft < 0) {
-                return -item.quality;
-            } else if (item.sellIn <= 5) {
-                return 3;
-            } else if (item.sellIn <= 10) {
-                return 2;
-            } else {
-                return 1;
-            }
-        } else {
-            return daysLeft < 0 ? -2 : -1;
+        switch (getItemType(item.name)) {
+            case AGED_BRIE:
+                return daysLeft < 0 ? 2 : 1;
+            case BACKSTAGE_PASSES:
+                if (daysLeft < 0) {
+                    return -item.quality;
+                } else if (item.sellIn <= 5) {
+                    return 3;
+                } else if (item.sellIn <= 10) {
+                    return 2;
+                } else {
+                    return 1;
+                }
+            default:
+                return daysLeft < 0 ? -2 : -1;
         }
+    }
+
+    private static void incrementQuality(Item item, Integer amount) {
+        int newQuality = item.quality + amount;
+        item.quality = Math.max(MIN_QUALITY, Math.min(MAX_QUALITY, newQuality));
     }
 }
