@@ -2,12 +2,13 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.GildedRose.AGED_BRIE;
-import static com.gildedrose.GildedRose.BACKSTAGE_PASSES;
-import static com.gildedrose.GildedRose.SULFURAS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GildedRoseTest {
+
+    public static final String AGED_BRIE = "Aged Brie";
+    public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+    public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 
     @Test
     void test_sellInMoreThanZero_agedBrie_quality49_incrementsQuality() {

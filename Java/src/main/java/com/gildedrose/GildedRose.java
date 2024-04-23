@@ -1,15 +1,40 @@
 package com.gildedrose;
 
+import static com.gildedrose.ItemType.AGED_BRIE;
+import static com.gildedrose.ItemType.BACKSTAGE_PASSES;
+import static com.gildedrose.ItemType.SULFURAS;
+import static com.gildedrose.ItemType.getItemType;
+
+enum ItemType {
+    SULFURAS("Sulfuras, Hand of Ragnaros"),
+    AGED_BRIE("Aged Brie"),
+    BACKSTAGE_PASSES("Backstage passes to a TAFKAL80ETC concert"),
+    NORMAL_ITEM("Normal Item");
+
+    private final String itemName;
+
+    ItemType(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public static ItemType getItemType(String itemName) {
+        for (ItemType type : values()) {
+            if (type.getItemName().equals(itemName)) {
+                return type;
+            }
+        }
+        return NORMAL_ITEM;
+    }
+}
+
 class GildedRose {
     private static final int MIN_QUALITY = 0;
 
     private static final int MAX_QUALITY = 50;
-
-    public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
-
-    public static final String AGED_BRIE = "Aged Brie";
-
-    public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
 
     Item[] items;
 
@@ -24,7 +49,7 @@ class GildedRose {
 
     public void updateQuality() {
         for (Item item : this.items) {
-            if (item.name.equals(SULFURAS)) {
+            if (getItemType(item.name) == SULFURAS) {
                 continue;
             }
 
@@ -35,10 +60,11 @@ class GildedRose {
         }
     }
 
-    private Integer calculateQualityIncrement(Item item, Integer daysLeft) {
-        if (item.name.equals(AGED_BRIE)) {
+    private static Integer calculateQualityIncrement(Item item, Integer daysLeft) {
+        ItemType itemType = ItemType.getItemType(item.name);
+        if (itemType == AGED_BRIE) {
             return daysLeft < 0 ? 2 : 1;
-        } else if (item.name.equals(BACKSTAGE_PASSES)) {
+        } else if (itemType == BACKSTAGE_PASSES) {
             if (daysLeft < 0) {
                 return -item.quality;
             } else if (item.sellIn <= 5) {
