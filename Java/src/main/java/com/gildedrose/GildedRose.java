@@ -3,6 +3,8 @@ package com.gildedrose;
 import static com.gildedrose.ItemType.SULFURAS;
 import static com.gildedrose.ItemType.getItemType;
 
+import java.util.Arrays;
+
 enum ItemType {
     SULFURAS("Sulfuras, Hand of Ragnaros"),
     AGED_BRIE("Aged Brie"),
@@ -20,12 +22,10 @@ enum ItemType {
     }
 
     public static ItemType getItemType(String itemName) {
-        for (ItemType type : values()) {
-            if (type.getItemName().equals(itemName)) {
-                return type;
-            }
-        }
-        return NORMAL_ITEM;
+        return Arrays.stream(values())
+                .filter(s -> s.getItemName().equals(itemName))
+                .findFirst()
+                .orElse(NORMAL_ITEM);
     }
 }
 
