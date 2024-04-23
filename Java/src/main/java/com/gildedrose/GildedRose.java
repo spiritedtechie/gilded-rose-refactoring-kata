@@ -31,11 +31,13 @@ class GildedRose {
                 if (item.sellIn < 6) {
                     item.incrementQuality();
                 }
+                
             } else {
                 item.decrementQuality();
+                
             }
 
-            item.sellIn = item.sellIn - 1;
+            item.sellIn -= 1;
 
             if (item.sellIn < 0) {
                 if (item.name.equals(AGED_BRIE)) {
