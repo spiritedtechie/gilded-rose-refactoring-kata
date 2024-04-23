@@ -30,23 +30,22 @@ class GildedRose {
                 }
             } else if (item.name.equals(BACKSTAGE_PASSES)) {
                 item.incrementQuality();
-                if (sellInAtStartOfDay < 11) {
+                if (sellInAtStartOfDay <= 10) {
                     item.incrementQuality();
                 }
-                if (sellInAtStartOfDay < 6) {
+                if (sellInAtStartOfDay <= 5) {
                     item.incrementQuality();
                 }
                 if (sellInAtEndOfDay < 0) {
                     item.quality = 0;
                 }
-                
             } else {
                 item.decrementQuality();
                 if (sellInAtEndOfDay < 0) {
                     item.decrementQuality();
                 }
-                
             }
+
         }
     }
 }
